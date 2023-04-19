@@ -28,6 +28,18 @@ module.exports = {
   let json = await fetchJson(`${home}/screenshot?key=${key}&url=${url}`);
   return json.result;
  },
+ short: async (url) => {
+  try {
+   let json = await fetchJson(`${home}/short?key=${key}&url=${url}`);
+   return json.result;
+  } catch {
+   return false;
+  }
+ },
+ unshort: async (url) => {
+  let json = await fetchJson(`${home}/unshort?key=${key}&url=${url}`);
+  return json.result;
+ },
  wikipedia: async (query) => {
   let lang = (config.LANG == 'en' || config.LANG == 'eng' || config.LANG == 'english') ? 'en' : (config.LANG == 'ml' || config.LANG == 'mal' || config.LANG == 'malayalam') ? 'ml' : 'en';
   let json = await fetchJson(`${home}/wikipedia?key=${key}&query=${query}&lang=${lang}`);
