@@ -1,4 +1,4 @@
-let { onCommand, loadLanguage, emojiMix } = require('../main/');
+let { onCommand, loadLanguage } = require('../main/');
 let api = require('../main/api');
 let { mix_desc, mix_need, inv_format_mix, inv_char_mix, mix_not_sup } = loadLanguage();
 
