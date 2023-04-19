@@ -1,4 +1,4 @@
-let { onCommand, loadLanguage, githubStalk } = require('../main/');
+let { onCommand, loadLanguage } = require('../main/');
 let api = require('../main/api');
 let { github_desc, repo_desc, need_un, invalid_un, need_repo, invalid_repo } = loadLanguage();
 
