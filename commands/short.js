@@ -11,7 +11,7 @@ onCommand(
 
   if (!text[1]) return await msg.reply(ss_need);
   if (!isURL(text[1])) return await msg.reply(ss_invalid);
-  let res = await api.shortURL(text[1]);
+  let res = await api.short(text[1]);
   if (!res) return await msg.reply(already_short);
   return await msg.reply(res.short_url);
 });
@@ -26,6 +26,6 @@ onCommand(
   if (!text[1]) return await msg.reply(need_short_url);
   if (!isURL(text[1])) return await msg.reply(invalid_url);
   if (!text[1].match(/https?:\/\/is\.gd\/[a-zA-Z0-9]+/)) return await msg.reply(not_short_url);
-  let res = await api.unshortURL(text[1]);
+  let res = await api.unshort(text[1]);
   return await msg.reply(res.long_url);
 });
