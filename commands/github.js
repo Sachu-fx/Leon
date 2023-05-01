@@ -29,7 +29,7 @@ onCommand(
   }, async (msg, text, client) => {
 
   if (!text[1]) return await msg.reply(need_repo);
-  let info = await api.github('repository', text[1]);
+  let info = await api.github('repo', text[1]);
   if (!info) return await msg.reply(invalid_repo);
   let { name, id, owner, desc, homepage, stars, language, forks, archived, opened_issues, license, visibility, default_branch, topics, url } = info
   info = `_Name_ : *${name}*\n_ID_ : *${id}*${desc !== false ? `\n_Description_ : *${desc}*` : ''}\n_Visibility_ : *${visibility}*${topics.length < 1 ? '' : `\n_Topics_ : *${topics.join(', ')}*`}\n_Forks_ : *${forks}*\n_Stars_ : *${stars}*${homepage == false ? '' : `\n_Homepage_ : *${homepage}*`}${language !== false ? `\n_Language_ : *${language}*` : ''}\n_Opened Issues_ : *${opened_issues}*\n_Archived_ : ${archived == true ? '*Yes*' : '*No*'}${license !== false ? '\n_License_ : *'+license+'*' : ''}\n_Default Branch_ : *${default_branch}*\n_Developer_ : *${owner}*\n_URL_ : *${url}*`
