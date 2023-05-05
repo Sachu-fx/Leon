@@ -5,13 +5,31 @@ let home = 'https://toxic-devil-api.onrender.com'
 let key = getKey(); // Please replace this with your own key.
 
 module.exports = {
+ anime: async (type) => {
+  let json = await fetchJson(`${home}/anime?key=${key}&type=${type}`);
+  return json.result;
+ },
  chatgpt: async (query) => {
   let json = await fetchJson(`${home}/chatgpt?key=${key}&openai_key=${config.OPENAIKEY}&query=${query}`);
   return json.result;
  },
  cat: async (type, say) => {
-  let json = await fetchJson(`${home}/cat?key=${key}&type=${type}${say !== undefined ? '' : '&text='+say}`);
-  return json.result;
+  if (type == 'fact') {
+   let json = await fetchJson(`${home}/cat-fact?key=${key}`);
+   return json.result;
+  } else {
+   let json = await fetchJson(`${home}/cat?key=${key}&type=${type}${say !== undefined ? '' : '&text='+say}`);
+   return json.result;
+  }
+ },
+ dog: async (type) => {
+  if (type == 'fact') {
+   let json = await fetchJson(`${home}/dog-fact?key=${key}`);
+   return json.result;
+  } else {
+   let json = await fetchJson(`${home}/dog?key=${key}&type=${type}`);
+   return json.result;
+  }
  },
  dall_e: async (query) => {
   let json = await fetchJson(`${home}/dall-e?key=${key}&openai_key=${config.OPENAIKEY}&query=${query}`);
