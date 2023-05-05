@@ -109,6 +109,10 @@ module.exports = {
   let json = await fetchJson(`${home}/unshort?key=${key}&url=${url}`);
   return json.result;
  },
+ telegram: async (type, query) => {
+  let json = await fetchJson(`${home}/telegram_${type}?key=${key}&${type == 'user' ? type+'name' : type == 'group' ? type : type == 'channel' ? type : 'username'}=${query}`);
+  return json.result;
+ },
  wikipedia: async (query) => {
   let lang = (config.LANG == 'en' || config.LANG == 'eng' || config.LANG == 'english') ? 'en' : (config.LANG == 'ml' || config.LANG == 'mal' || config.LANG == 'malayalam') ? 'ml' : 'en';
   let json = await fetchJson(`${home}/wikipedia?key=${key}&query=${query}&lang=${lang}`);
