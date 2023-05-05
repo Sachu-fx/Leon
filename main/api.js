@@ -1,8 +1,8 @@
-let { fetchJson } = require('./index');
+let { fetchJson, key } = require('./index');
 let config = require('./config');
 
 let home = 'https://toxic-devil-api.onrender.com'
-let key = 'B3T4K3Y'
+let key = key(); // Please replace this with your own key.
 
 module.exports = {
  chatgpt: async (query) => {
