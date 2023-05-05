@@ -50,6 +50,7 @@ module.exports = {
  mix_desc: 'Mixes given two emojis into one.',
  truecaller_desc: 'Searches the information about provided number in truecaller.',
  wiki_desc: 'Searches articles related to your query in wikipedia.',
+ planetary_desc: 'Gives information about new things found in space by NASA.',
  pp_desc: 'Updates your profile picture with replied image.',
  jid_desc: 'Get jid of mentioned or replied user.',
  name_desc: 'Updates your profile name.',
