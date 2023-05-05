@@ -25,8 +25,9 @@ onCommand(
 
   let planetary = await api.planetary();
   let url = planetary.image,
-      caption = '*' + planetary.title + '*\n\n```' + planetary.explanation + '```';
+      caption = '*' + planetary.title + ' ( ' + planetary.date + ' )*\n\n```' + planetary.explanation + '```';
   await client.sendReply({ type: 'image', message: { url }, caption }).then(() => true)
-   .catch(async (_) => await msg.reply(caption)
+   .catch(async (_) => await client.sendReply({ type: 'image', message: { url } });
+     return await msg.reply('*👆 ' + caption.slice(1));
   );
 });
