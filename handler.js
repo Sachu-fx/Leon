@@ -1,4 +1,4 @@
-let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage, updateStore, connectionUpdate, bindPort } = require('./main/');
+let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage, updateStore, connectionUpdate } = require('./main/');
 let { error_message } = loadLanguage();
 let bot = require('./main/auth');
 let got = require('got');
@@ -21,7 +21,6 @@ Array.prototype.random = function () {
 }
 
 async function initialize() {
-  await bindPort();
   let { client, store, saveCreds } = await bot.connect();
 
   console.log('Loading external commands...', 'processing')
