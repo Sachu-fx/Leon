@@ -1,3 +1,4 @@
+'use strict';
 let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage, updateStore, connectionUpdate } = require('./main/');
 let { error_message } = loadLanguage();
 let bot = require('./main/auth');
