@@ -1,5 +1,5 @@
 'use strict';
-let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage, updateStore, connectionUpdate } = require('./main/');
+let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage } = require('./main/');
 let { error_message } = loadLanguage();
 let bot = require('./main/auth');
 let got = require('got');
@@ -107,9 +107,7 @@ async function initialize() {
     }});
  });
 
- client.ev.on('connection.update', async (conn) => await connectionUpdate(conn));
  client.ev.on('creds.update', saveCreds)
- client.ev.on('contacts.update', async (contacts) => await updateStore(client, store, contacts));
  client.ev.on('group-participants.update', async (user) => {
    let greetings = require('../database/greetings');
    let message = async (type) => await greetings.getMessage(user.id, type);
