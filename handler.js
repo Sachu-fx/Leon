@@ -85,8 +85,8 @@ async function initialize() {
   }
 
   commands.allCommands.map(
-    async (command) =>  {
-       if ((await isCommand(command, msg)) == true) {
+      async (command) =>  {
+       if (msg.text.charAt(0).match(config.PREFIX) && msg.text.split(msg.text.charAt(0))[1].startsWith(command.command)) {
         let isOkay = true;
         if (command.owner == true && !msg.isOwner) isOkay = false;
         else if (command.dev == true && !msg.isDev) isOkay = false;
