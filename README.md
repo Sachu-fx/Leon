@@ -4,6 +4,7 @@
 ## Deploy & Run Leon
 
 [![Run on Repl.it](https://repl.it/badge/github/TOXIC-DEVIL/Leon)](https://replit.com/@TOXIC-DEVIL/Leon)
+> Read: [INSTALLATION-TUTORIAL](https://github.com/TOXIC-DEVIL/Leon/wiki/INSTALLATION-TUTORIAL)
 
 ### Railway
 
@@ -19,14 +20,10 @@
  <h1>Leon</h1>
 </div>
 
-**Join official channel where you can find updates and information about Leon: [@leon_wabot](https://t.me/leon_wabot)**
-
 ## ⚠️ NOTE:
 
 **Your WhatsApp account may be banned by using Leon and other WhatsApp Bots.**
 **This is because of many reasons which violates their terms and conditions.**
-**But, Don't worry! I will try my best to unban your number.**
-**You can mail me [@toxicdevil.abhinav@gmail.com](https://mailto:toxicdevil.abhinav@gmail.com).**
 
 ## 🐞 TROUBLESHOOTING:
 
@@ -56,7 +53,5 @@
 ## 🙏 Thank You:
 
 - **For users**
-
-- **Contributors**
 
 - **And all supporters**

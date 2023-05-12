@@ -1,4 +1,5 @@
-let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage, updateStore, connectionUpdate, bindPort } = require('./main/');
+'use strict';
+let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage } = require('./main/');
 let { error_message } = loadLanguage();
 let bot = require('./main/auth');
 let got = require('got');
@@ -21,7 +22,6 @@ Array.prototype.random = function () {
 }
 
 async function initialize() {
-  await bindPort();
   let { client, store, saveCreds } = await bot.connect();
 
   console.log('Loading external commands...', 'processing')
@@ -85,8 +85,8 @@ async function initialize() {
   }
 
   commands.allCommands.map(
-    async (command) =>  {
-       if ((await isCommand(command, msg)) == true) {
+      async (command) =>  {
+       if (msg.text.charAt(0).match(config.PREFIX) && msg.text.split(msg.text.charAt(0))[1].startsWith(command.command)) {
         let isOkay = true;
         if (command.owner == true && !msg.isOwner) isOkay = false;
         else if (command.dev == true && !msg.isDev) isOkay = false;
@@ -107,9 +107,7 @@ async function initialize() {
     }});
  });
 
- client.ev.on('connection.update', async (conn) => await connectionUpdate(conn));
  client.ev.on('creds.update', saveCreds)
- client.ev.on('contacts.update', async (contacts) => await updateStore(client, store, contacts));
  client.ev.on('group-participants.update', async (user) => {
    let greetings = require('../database/greetings');
    let message = async (type) => await greetings.getMessage(user.id, type);

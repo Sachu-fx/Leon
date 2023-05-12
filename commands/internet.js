@@ -1,8 +1,8 @@
-let { onCommand, loadLanguage, fetchJson, fetchLyrics, truecaller, bufferFrom } = require('../main/');
+let { onCommand, loadLanguage, fetchJson, bufferFrom } = require('../main/');
 let { compliment_desc, joke_desc, quote_desc, lyrics_desc, tti_desc, truecaller_desc, need_song, gpt_desc, chat_gpt, missing_openai, expired_openai, lyrics_nf, need_prompt, need_num, inv_num_true } = loadLanguage();
 let fs = require('fs');
 let config = require('../main/config');
-let ai = require('../main/ai');
+let api = require('../main/api');
 let ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 let ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath(ffmpegPath);
@@ -48,7 +48,7 @@ onCommand(
   }, async (msg, text, client) => {
 
    if (!text[1]) return await msg.reply(need_song);
-   let result = await fetchLyrics(text[1]);
+   let result = await api.lyrics(text[1]);
    if (!result) return await msg.reply(lyrics_nf);
    return await msg.reply(result);
 });
@@ -61,7 +61,7 @@ onCommand(
   }, async (msg, text, client) => {
 
   if (!text[1]) return await msg.reply(chat_gpt);
-  let response = await ai.chatgpt(text[1]);
+  let response = await api.chatgpt(text[1]);
   if (config.OPENAIKEY == 'false') return await msg.reply(missing_openai);
   if (!response) return await msg.reply(expired_openai);
   return await msg.reply('```'+response+'```');
@@ -75,13 +75,13 @@ onCommand(
   }, async (msg, text, client) => {
 
   if (!text[1]) return await msg.reply(need_prompt);
-  let url = await ai.textToImage(text[1]);
+  let url = await api.dall_e(text[1]);
   if (config.OPENAIKEY == 'false') return await msg.reply(missing_openai);
   if (!url) return await msg.reply(expired_openai);
   return await client.sendReply({ type: 'image', message: { url } });
 });
 
-onCommand(
+/*onCommand(
   {
    command: 'truecaller',
    desc: truecaller_desc,
@@ -92,4 +92,4 @@ onCommand(
   let result = await truecaller(text[1]);
   if (!result) return await msg.reply(inv_num_true);
   return await msg.reply(result);
-});
+});*/
