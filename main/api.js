@@ -37,7 +37,7 @@ module.exports = {
  },
  emoji_mix: async (emo1, emo2) => {
   let json = await fetchJson(`${home}/other/emoji-mix?key=${key}&emoji1=${emo1}&emoji2=${emo2}`);
-  return json.result;
+  return json.result[0];
  },
  lyrics: async (song) => {
   let json = await fetchJson(`${home}/search/lyrics?key=${key}&song=${song}`);
