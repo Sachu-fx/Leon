@@ -99,14 +99,14 @@ module.exports = {
  },
  short: async (url) => {
   try {
-   let json = await fetchJson(`${home}/other/short?key=${key}&url=${url}`);
+   let json = await fetchJson(`${home}/short/is.gd?key=${key}&url=${url}`);
    return json.result;
   } catch {
    return false;
   }
  },
  unshort: async (url) => {
-  let json = await fetchJson(`${home}/other/unshort?key=${key}&url=${url}`);
+  let json = await fetchJson(`${home}/unshort/is.gd?key=${key}&url=${url}`);
   return json.result;
  },
  telegram: async (type, query) => {
