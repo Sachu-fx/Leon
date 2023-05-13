@@ -18,6 +18,7 @@
 <div align="center">
  <img src="https://i.ibb.co/mbcp1Wp/In-Shot-20230401-203841932.jpg" width="200" height="200">
  <h1>Leon</h1>
+ <p><strong>Have any questions? <a href="https://telegram.me/toxic_devil_official">Contact me!</a></strong></p>
 </div>
 
 ## ⚠️ NOTE:
