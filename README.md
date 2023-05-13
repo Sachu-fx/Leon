@@ -31,8 +31,8 @@
 **You got an error? If your error code is:**
 
 - `400` - **You are not using the official repository, use [the official one.](https://github.com/TOXIC-DEVIL/Leon)**
-- `401` - **You haven't provided authentication id to authenticate.**
-- `406` - **You have provided an invalid authentication id. Please recheck your AUTH_ID.**
+- `401` - **You haven't provided session to authenticate.**
+- `406` - **You have provided an invalid session. Please recheck your SESSION.**
 - `503` - **An internal error occurred while authenticating: [REPORT](https://github.com/TOXIC-DEVIL/Leon/issues/new?assignees=&labels=bug&title=[%20503%20]%20AN%20INTERNAL%20ERROR%20WHILE%20AUTHENTICATING)**
 
 #### LOGS
