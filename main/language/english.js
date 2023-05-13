@@ -227,7 +227,5 @@ module.exports = {
  invalid_type_greet: '*❌ Invalid type, Please enter a valid type from below:*\n*- welcome*\n*- bye*\n*- promote*\n*- demote*',
  suc_greet: '*✅ Successfully set {} message!*',
  alive_message: '*Hey {},*\n*I\'m still alive!*',
- error_message: '*ERROR LOG*\n\n_An error occurred! You can open an issue on TOXIC-DEVIL/Leon for a fix._\n*Open an issue:* https://bit.ly/43kG9jU\n\n*Error:* ```{}```',
- alive_footer: '_Name_ : *{}*\n_ID_ : *{}*\n_Number_ : *{}*\n_Total Commands_ : *{}*',
- menu: 'MENU'
+ error_message: '*ERROR LOG*\n\n_An error occurred! You can open an issue at TOXIC-DEVIL/Leon for a fix._\n*Open an issue:* https://bit.ly/43kG9jU\n\n*Error:* ```{}```'
 };
