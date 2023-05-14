@@ -13,7 +13,7 @@ onCommand(
   text[1] = text[1].startsWith('@') ? text[1].slice(1) : text[1];
   try {
    let info = await api.github('user', text[1]);
-   let { username, name, bio, id, location, email, url, pp, profileUrl, followers, following, ropos, gists, hireable, created } = info
+   let { username, name, bio, id, location, email, url, pp, profileUrl, followers_count: followers, following_count: following_, ropos_count: repos, gists_count: gists, hireable, created } = info
    let caption = `_GitHub Username_ : *${username.github}*${name !== false ? `\n_Name_ : *${name}*` : ''}${bio !== false ? `\n_Biography_ : *${bio}*` : ''}\n_ID_ : *${id}*${location !== false ? `\n_Location_ : *${location}*` : ''}${email !== false ? `\n_Email_ : *${email}*` : ''}${url.blog == false ? '' : `\n_Blog URL_ : *${url.blog}*`}${username.twitter == false ? '' : `\n_Twitter Username_ : *${username.twitter}*`}${url.twitter !== false ? `\n_Twitter URL_ : *${url.twitter}*` : ''}\n_Followers_ : *${followers}*\n_Following_ : *${following}*\n_Repositories_ : *${ropos}*\n_Gists_ : *${gists}*\n_Hireable_ : *${hireable == true ? 'Yes' : 'No'}*\n_Created_ : *${created}*`;
    return await client.sendReply({ type: 'image', message: { url: pp }, caption });
   } catch {
