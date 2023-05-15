@@ -1,4 +1,4 @@
-let { onCommand, removeCommand, loadLanguage } = require('../main/');
+let { onCommand, removeCommand, commands, backup, loadLanguage } = require('../main/');
 let { install_desc, commands_desc, remove_desc, need_install, invalid_url_install, unofficial_install, invalid_gist_url, invalid_command, installed_command, none_installed, need_remove, deleted_command } = loadLanguage();
 let got = require('got');
 let fs = require('fs');
@@ -64,4 +64,40 @@ onCommand(
      fs.unlinkSync('../commands/external/' + text[1] + '.js');
      await removeCommand(text[1]);
      await msg.reply(deleted_command.format(text[1]));
+});
+
+onCommand(
+  {
+   command: 'disable',
+   owner: true,
+   desc: 'Disable',
+   category: ['owner']
+  }, async (msg, text, client) => {
+
+  if (!text[1]) return await msg.reply('_Please enter a command name without prefix!_');
+  let cmds = commands.allCommands.map(cmd => cmd.command);
+  if (!cmds.includes(text[1].toLowerCase()))
+   return await msg.reply('*❌ This is not a valid command or its not existsing!*\n*If ' + text[1].toLowerCase() + ' was an external command, try rechecking wheather its correctly installed using ' + config.PREFIX + 'commands.*');
+  await removeCommand(text[1]);
+  return await msg.reply('*☑️ Successfully disabled ' + text[1].toLowerCase() + '!*');
+});
+
+onCommand(
+  {
+   command: 'enable',
+   owner: true,
+   desc: 'Enable',
+   category: ['owner']
+  }, async (msg, text, client) => {
+
+  if (!text[1]) return await msg.reply('_Please enter a command name without prefix!_');
+  let cmds = backup.map(cmd => cmd.command);
+  if (!cmds.includes(text[1].toLowerCase()))
+   return await msg.reply('*❌ This is not a valid command or its not existsing!*\n*If ' + text[1].toLowerCase() + ' was an external command, try rechecking wheather its correctly installed using ' + config.PREFIX + 'commands.*');
+  let allCmd = commands.allCommands.filter(cmd => cmds.includes(cmd));
+  if (allCmd.length > 0) return await msg.reply('* ❌This command is already enabled!*');
+  commands.allCommands.push(
+    backup.filter(cmd => cmd.command == text[1].toLowerCase())[0]
+  );
+  return await msg.reply('*✔️ Successfully disabled ' + text[1].toLowerCase() + '!*');
 });
