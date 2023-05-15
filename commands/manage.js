@@ -13,7 +13,7 @@ onCommand(
   return await client.sendReply(
    {
     type: 'text',
-    message: alive_message.format(await client.userName(msg.sender))
+    message: alive_message.format(await client.userName(msg.sender), require('../package').version, require('../main/commands').commands.allCommands.length, await client.userName(msg.me))
    }
   );
 });
