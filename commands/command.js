@@ -99,5 +99,5 @@ onCommand(
   commands.allCommands.push(
     backup.filter(cmd => cmd.command == text[1].toLowerCase())[0]
   );
-  return await msg.reply('*✔️ Successfully disabled ' + text[1].toLowerCase() + '!*');
+  return await msg.reply('*✅ Successfully disabled ' + text[1].toLowerCase() + '!*');
 });
