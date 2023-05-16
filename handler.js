@@ -65,6 +65,7 @@ async function initialize() {
  client.ev.on('messages.upsert', async (msg) => {
   msg = msg.messages[0]
   if (!msg.message) return;
+  console.log(msg);
   if (msg.key && msg.key.remoteJid === 'status@broadcast') {
    if (config.AUTOSV == 'true') return await client.readMessages([msg.key]);
    else return;
