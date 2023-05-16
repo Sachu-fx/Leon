@@ -110,6 +110,7 @@ async function initialize() {
  client.ev.on('creds.update', saveCreds)
  client.ev.on('group-participants.update', async (user) => {
    let greetings = require('../database/greetings');
+   await greetings.GreetingsDB.sync();
    let message = async (type) => await greetings.getMessage(user.id, type);
    if (user.action == 'add') {
     if (!(await message('welcome'))) return;
