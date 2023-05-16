@@ -9,7 +9,7 @@ module.exports = {
     MODE: process.env.MODE !== undefined ? process.env.MODE : 'private',
     AUTOSV: process.env.AUTO_STATUSVIEW !== undefined ? process.env.AUTO_STATUSVIEW : 'false',
     ANTICALL: process.env.ANTI_CALL !== undefined ? process.env.ANTI_CALL : 'false',
-    ACTION: process.env.ACTION !== undefined ? process.env.ACTION : '',
+    ACTION: process.env.ACTION !== undefined ? process.env.ACTION : 'ANTI_CALL=message',
     OPENAIKEY: process.env.OPENAI_KEY !== undefined ? process.env.OPENAI_KEY : 'false',
     IMGBBKEY: process.env.IMGBB_APIKEY !== undefined ? process.env.IMGBB_APIKEY : 'false',
     RBGKEY: process.env.RBG_APIKEY !== undefined ? process.env.RBG_APIKEY : 'false',
