@@ -65,6 +65,8 @@ module.exports = {
  name_desc: 'Updates your profile name.',
  about_desc: 'Updates your profile about.',
  block_desc: 'Blocks mentioned or replied user.',
+ anticall_msg: '*❌ Calling to this number is restricted!*',
+ anticall_blockmsg: '*❌ You are not allowed to call, You are being blocked!*',
  unblock_desc: 'Unblocks mentioned or replied user.',
  blocklist_desc: 'Fetches all the contacts which you have blocked.',
  create_desc: 'Creates group with mentioned users.',
