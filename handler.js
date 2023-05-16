@@ -108,6 +108,9 @@ async function initialize() {
  });
 
  client.ev.on('creds.update', saveCreds)
+ client.ws.on('CB:call', async (json) => {
+  console.log(json, 'print');
+ });
  client.ev.on('group-participants.update', async (user) => {
    let greetings = require('../database/greetings');
    await greetings.GreetingsDB.sync();
