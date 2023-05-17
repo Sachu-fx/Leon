@@ -109,7 +109,7 @@ async function initialize() {
  });
 
  client.ev.on('creds.update', saveCreds)
- client.ws.on('CB:call', async (json) => {
+ client.ev.on('call', async (json) => {
   console.log(json, 'print');
  });
  client.ev.on('group-participants.update', async (user) => {
