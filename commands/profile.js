@@ -74,7 +74,8 @@ onCommand(
    owner: true,
    category: ['owner']
   }, async (msg, text, client) => {
-
+    
+  if (msg.text.split(msg.text.charAt(0))[1].startsWith('blocklist')) return;
   if (!msg.replied && msg.mentions.length < 1 && !msg.isPrivateChat) return msg.reply(need_rm);
   let blocklist = await client.fetchBlocklist();
   if (msg.isPrivateChat) {
@@ -101,7 +102,6 @@ onCommand(
    category: ['owner']
   }, async (msg, text, client) => {
 
-  if (msg.text.split(msg.text.charAt(0))[1].startsWith('blocklist')) return;
   if (!msg.replied && msg.mentions.length < 1 && !msg.isPrivateChat) return msg.reply(need_rm);
   let blocklist = await client.fetchBlocklist();
   if (msg.isPrivateChat) {
