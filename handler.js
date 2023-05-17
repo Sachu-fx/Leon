@@ -24,7 +24,7 @@ Array.prototype.random = function () {
 async function initialize() {
   let { client, store, saveCreds } = await bot.connect();
 
-  console.log('Loading external commands...', 'processing')
+  console.log('Loading external commands...')
   let { CommandsDB } = require('./database/command');
   await CommandsDB.sync();
   var command = await CommandsDB.findAll();
@@ -58,7 +58,7 @@ async function initialize() {
   }
  });
 
- console.log('Loaded external commands!', 'done');
+ console.log('Loaded external commands!');
 
  await serializeClient(store, client);
 
@@ -110,6 +110,7 @@ async function initialize() {
 
  client.ev.on('creds.update', saveCreds)
  client.ev.on('call', async (json) => {
+  console.log(json);
   if (config.ANTICALL == 'true') {
    let callerId = json.content[0].attrs['call-creator'], callId = json.content[0].attrs['call-id'];
    if (json.content[0].tag == 'offer') {
@@ -140,7 +141,7 @@ async function initialize() {
     await client.sendMessage(user.id, { text: (await message('demote')) });
    }
  });
- console.log('LEON IS NOW ACTIVE IN YOUR ACCOUNT!', 'done');
+ console.log('LEON IS NOW ACTIVE IN YOUR ACCOUNT!');
 
  return { store, client };
 }
