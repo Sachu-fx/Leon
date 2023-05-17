@@ -113,7 +113,7 @@ async function initialize() {
   if (config.ANTICALL == 'true') {
    let callerId = json[0].chatId, callId = json[0].id;
    if (json[0].status == 'offer') {
-    if (config.ACTION.includes('anti_call=block')) {
+    if (config.ACTION.toLowerCase().includes('anti_call=block')) {
      await client.updateBlockStatus(callerId, 'block');
      return await client.sendMessage(callerId, { text: anticall_blockmsg });
     } else {
