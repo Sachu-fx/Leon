@@ -91,7 +91,7 @@ async function initialize() {
     if (config.ACTION.toLowerCase().includes('anti_link=delete')) {
      if (msg.isAdmin(msg.me)) return await client.sendMessage(msg.chat, { delete: msg.key });
    } else if (config.ACTION.toLowerCase().includes('anti_link=message')) {
-     if (msg.isAdmin(msg.me)) await client.sendMessage(msg.chat, { delete: msg.key })
+     if (msg.isAdmin(msg.me)) await client.sendMessage(msg.chat, { delete: msg.key });
      return await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
    } else if (config.ACTION.toLowerCase().includes('anti_link=kick')) {
      if (msg.isAdmin(msg.me)) {
