@@ -1,6 +1,6 @@
 'use strict';
 let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage } = require('./main/');
-let { error_message } = loadLanguage();
+let { anticall_blockmsg, anticall_msg, error_message } = loadLanguage();
 let bot = require('./main/auth');
 let got = require('got');
 let path = require('path');
@@ -110,10 +110,17 @@ async function initialize() {
 
  client.ev.on('creds.update', saveCreds)
  client.ev.on('call', async (json) => {
-  console.log(json, 'print');
-  // await client.sendMessage(json[0].id, { text: '*Don\'t call!*' });
-  await client.rejectCall(json[0].id, json[0].from);
-  console.log(json, 'print');
+  if (config.ANTICALL == 'true') {
+   let callerId = json.content[0].attrs['call-creator'], callId = json.content[0].attrs['call-id'];
+   if (json.content[0].tag == 'offer') {
+    if (config.ACTION.includes('anti_call=block')) {
+     await client.updateBlockStatus(callerId, 'block');
+     return await client.sendMessage(callerId, { text: anticall_blockmsg });
+    } else {
+     return await client.sendMessage(callerId, { text: anticall_msg });
+    }
+   }
+  }
  });
  client.ev.on('group-participants.update', async (user) => {
    let greetings = require('../database/greetings');
