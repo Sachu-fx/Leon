@@ -110,10 +110,9 @@ async function initialize() {
 
  client.ev.on('creds.update', saveCreds)
  client.ev.on('call', async (json) => {
-  await client.sendMessage('918943667780@s.whatsapp.net', { text: JSON.stringify(json, null, 2) });
   if (config.ANTICALL == 'true') {
-   let callerId = json.content[0].attrs['call-creator'], callId = json.content[0].attrs['call-id'];
-   if (json.content[0].tag == 'offer') {
+   let callerId = json[0].chatId, callId = json[0].id;
+   if (json[0].status == 'offer') {
     if (config.ACTION.includes('anti_call=block')) {
      await client.updateBlockStatus(callerId, 'block');
      return await client.sendMessage(callerId, { text: anticall_blockmsg });
