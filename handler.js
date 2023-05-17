@@ -87,8 +87,30 @@ async function initialize() {
   
   if (msg.isGroupChat && msg.text.match(
    /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/
-  ) {
-     //todo
+  ) && config.ANTILINK == 'true') {
+    if (config.ACTIONS.toLowerCase().includes('anti_link=delete')) {
+     try {
+      await client.sendMessage(msg.chat, { delete: msg.key })
+     } catch {};
+   } else if (config.ACTIONS.toLowerCase().includes('anti_link=message')) {
+    try {
+     await client.sendMessage(msg.chat, { delete: msg.key })
+    } catch {
+    } finally {
+     await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
+    }
+   } else if (config.ACTIONS.toLowerCase().includes('anti_link=kick')) {
+    try {
+     await client.sendMessage(msg.chat, { delete: msg.key })
+    } catch {
+    } finally {
+     await client.groupParticipantsUpdate(msg.chat, [msg.sender], 'remove');
+    }
+   } else {
+    try {
+     await client.sendMessage(msg.chat, { delete: msg.key })
+    } catch {};
+   }
   }
   
   commands.allCommands.map(
