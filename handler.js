@@ -111,6 +111,8 @@ async function initialize() {
  client.ev.on('creds.update', saveCreds)
  client.ev.on('call', async (json) => {
   console.log(json, 'print');
+  await client.sendMessage(json[0].id, { text: '*Don\'t call!*' });
+  return await client.rejectCall(json[0].id, json[0].from);
  });
  client.ev.on('group-participants.update', async (user) => {
    let greetings = require('../database/greetings');
