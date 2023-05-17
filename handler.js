@@ -84,7 +84,13 @@ async function initialize() {
    }
    await msg.reply(evaluate);
   }
-
+  
+  if (msg.isGroupChat && msg.text.match(
+   /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/
+  ) {
+     //todo
+  }
+  
   commands.allCommands.map(
       async (command) =>  {
        if (msg.text.charAt(0).match(config.PREFIX) && msg.text.split(msg.text.charAt(0))[1].startsWith(command.command)) {
