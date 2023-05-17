@@ -24,10 +24,10 @@ Array.prototype.random = function () {
 async function initialize() {
   let { client, store, saveCreds } = await bot.connect();
 
-  console.log('Loading external commands...')
   let { CommandsDB } = require('./database/command');
   await CommandsDB.sync();
   var command = await CommandsDB.findAll();
+  if (command.length > 0) console.log('[ 🔄 ] Loading external commands...');
   command.map(async (command) => {
    try {
     if (fs.existsSync('./commands/external/'+ command.dataValues.name + '.js')) return false;
@@ -36,7 +36,7 @@ async function initialize() {
     fs.writeFileSync('./commands/external/' + command.dataValues.name + '.js', response.body);
     require('./commands/external/' + command.dataValues.name + '.js');
    } catch (e) {
-    console.log(e);
+    console.log('[ ❌ ] ' + String(e));
    }
  });
 
@@ -58,7 +58,7 @@ async function initialize() {
   }
  });
 
- console.log('Loaded external commands!');
+ if (command.length > 0) console.log('[ ✅ ] Loaded external commands!');
 
  await serializeClient(store, client);
 
@@ -101,7 +101,7 @@ async function initialize() {
          try {
            await command.function(msg, text, client);
          } catch (error) {
-           console.log(error.stack?.toString(), 'failed');
+           console.log('[ ❌ ] ' + error.stack?.toString());
            await msg.reply(error_message.format(error.toString()), client.user.id);
          }
        }
@@ -141,7 +141,7 @@ async function initialize() {
     await client.sendMessage(user.id, { text: (await message('demote')) });
    }
  });
- console.log('LEON IS NOW ACTIVE IN YOUR ACCOUNT!');
+ console.log('[ ✅ ] Connected!');
 
  return { store, client };
 }
