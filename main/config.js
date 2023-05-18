@@ -8,7 +8,6 @@ module.exports = {
     LANG: process.env.LANGUAGE !== undefined ? process.env.LANGUAGE : 'eng',
     MODE: process.env.MODE !== undefined ? process.env.MODE : 'private',
     AUTOSV: process.env.AUTO_STATUSVIEW !== undefined ? process.env.AUTO_STATUSVIEW : 'false',
-    ANTILINK: process.env.ANTI_LINK !== undefined ? process.env.ANTI_LINK : 'false',
     ANTICALL: process.env.ANTI_CALL !== undefined ? process.env.ANTI_CALL : 'false',
     OPENAIKEY: process.env.OPENAI_KEY !== undefined ? process.env.OPENAI_KEY : 'false',
     IMGBBKEY: process.env.IMGBB_APIKEY !== undefined ? process.env.IMGBB_APIKEY : 'false',
