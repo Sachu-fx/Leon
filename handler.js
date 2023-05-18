@@ -89,17 +89,31 @@ async function initialize() {
    /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/
   ) && config.ANTILINK == 'true' && !msg.fromMe && !msg.isAdmin(msg.sender)) {
     if (config.ACTION.toLowerCase().includes('anti_link=delete')) {
-     if (msg.isAdmin(msg.me)) return await client.sendMessage(msg.chat, { delete: msg.key });
+     try {
+      await client.sendMessage(msg.chat, { delete: msg.key });
+     } catch {
+      return;
+     }
    } else if (config.ACTION.toLowerCase().includes('anti_link=message')) {
-     if (msg.isAdmin(msg.me)) await client.sendMessage(msg.chat, { delete: msg.key });
-     return await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
+     try {
+      await client.sendMessage(msg.chat, { delete: msg.key });
+      return await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
+     } catch {
+      return await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
+     }
    } else if (config.ACTION.toLowerCase().includes('anti_link=kick')) {
-     if (msg.isAdmin(msg.me)) {
+     try {
       await client.sendMessage(msg.chat, { delete: msg.key })
       return await client.groupParticipantsUpdate(msg.chat, [msg.sender], 'remove');
+     } catch {
+      return;
      }
    } else {
-     if (msg.isAdmin(msg.me)) return await client.sendMessage(msg.chat, { delete: msg.key });
+     try {
+      return await client.sendMessage(msg.chat, { delete: msg.key });
+     } catch {
+      return;
+     }
    }
   }
   
