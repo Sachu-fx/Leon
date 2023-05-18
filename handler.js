@@ -87,34 +87,13 @@ async function initialize() {
   
   if (msg.isGroupChat && msg.text.match(
    /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/
-  ) && config.ANTILINK == 'true' && msg.sender !== msg.me && !msg.isAdmin(msg.sender)) {
-    if (config.ACTION.toLowerCase().includes('anti_link=delete')) {
-     try {
-      await client.sendMessage(msg.chat, { delete: msg.key });
-     } catch {
-      return;
-     }
-   } else if (config.ACTION.toLowerCase().includes('anti_link=message')) {
-     try {
-      await client.sendMessage(msg.chat, { delete: msg.key });
-      return await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
-     } catch {
-      return await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
-     }
-   } else if (config.ACTION.toLowerCase().includes('anti_link=kick')) {
-     try {
-      await client.sendMessage(msg.chat, { delete: msg.key })
-      return await client.groupParticipantsUpdate(msg.chat, [msg.sender], 'remove');
-     } catch {
-      return;
-     }
-   } else {
-     try {
-      return await client.sendMessage(msg.chat, { delete: msg.key });
-     } catch {
-      return;
-     }
-   }
+  ) && config.ANTILINK == 'true') {
+    try {
+     await client.sendMessage(msg.chat, { delete: msg.key });
+     return await client.sendMessage(msg.chat, { text: '*❌ No links!*' });
+    } catch {
+     return;
+    }
   }
   
   commands.allCommands.map(
@@ -145,12 +124,8 @@ async function initialize() {
   if (config.ANTICALL == 'true') {
    let callerId = json[0].chatId, callId = json[0].id;
    if (json[0].status == 'offer') {
-    if (config.ACTION.toLowerCase().includes('anti_call=block')) {
-     await client.sendMessage(callerId, { text: anticall_blockmsg });
-     return await client.updateBlockStatus(callerId, 'block');
-    } else {
-     return await client.sendMessage(callerId, { text: anticall_msg });
-    }
+    await client.sendMessage(callerId, { text: anticall_blockmsg });
+    return await client.updateBlockStatus(callerId, 'block');
    }
   }
  });
