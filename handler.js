@@ -87,7 +87,7 @@ async function initialize() {
   
   if (msg.isGroupChat && msg.text.match(
    /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/
-  ) && config.ANTILINK == 'true' && !msg.key.fromMe && !msg.isAdmin(msg.sender)) {
+  ) && config.ANTILINK == 'true' && msg.sender !== msg.me && !msg.isAdmin(msg.sender)) {
     if (config.ACTION.toLowerCase().includes('anti_link=delete')) {
      try {
       await client.sendMessage(msg.chat, { delete: msg.key });
