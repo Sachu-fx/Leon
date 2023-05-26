@@ -1,6 +1,6 @@
 let { onCommand, loadLanguage } = require('../main/');
 let api = require('../main/api');
-let { wiki_desc, planetary_desc, vc_desc, need_vc, need_vc_type, wiki_need, wiki_invalid, wiki_result } = loadLanguage();
+let { wiki_desc, planetary_desc, vc_desc, need_vc, need_vc_type, invalid_vc_type, wiki_need, wiki_invalid, wiki_result } = loadLanguage();
 let { exec } = require('child_process');
 
 let voices = {
@@ -56,14 +56,14 @@ onCommand(
   }, async (msg, text, client) => {
 
   if (!msg.replied) return await msg.reply(need_vc);
-  if (!text[1]) return await msg.reply(need_vc_type);
+  if (!text[1]) return await msg.reply(need_vc_type + '*- blown*\n*- deep*\n*- earrape*\n*- fast*\n*- fat*\n*- nightcore*\n*- reverse*\n*- slow*\n*- smooth*\n*- squirrel*');
   if (!msg.replied.audio) return await msg.reply('*❌ Reply to any audio only!*');
   let audio = await msg.load(msg.replied.audio);
   fs.writeFileSync('input_audio.mp3', audio);
   audio = 'input_audio.mp3'
   text[1] = text[1].toLowerCase().replace(/ /g, '');
   let command = voices[text[1]];
-  if (command == undefined) return await msg.reply('*❌ Invalid voice changer, Please enter a valid voice changer from below!*\n*- blown*\n*- deep*\n*- earrape*\n*- fast*\n*- fat*\n*- nightcore*\n*- reverse*\n*- slow*\n*- smooth*\n*- squirrel*');
+  if (command == undefined) return await msg.reply(invalid_vc_type + '*- blown*\n*- deep*\n*- earrape*\n*- fast*\n*- fat*\n*- nightcore*\n*- reverse*\n*- slow*\n*- smooth*\n*- squirrel*');
   exec(`ffmpeg -i ${audio} ${command} voice.mp3`, async (err, stderr, stdout) => {
     if (err) throw 'FFMPEG ERROR!';
     await client.sendReply({ type: 'audio', message: { url: 'voice.mp3' } });
