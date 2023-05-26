@@ -1,6 +1,6 @@
 let { onCommand, loadLanguage } = require('../main/');
 let api = require('../main/api');
-let { wiki_desc, planetary_desc, vc_desc, need_vc, need_vc_type, invalid_vc_type, wiki_need, wiki_invalid, wiki_result } = loadLanguage();
+let { wiki_desc, planetary_desc, vc_desc, need_vc, need_vc_type, invalid_vc_type, need_aud_only, wiki_need, wiki_invalid, wiki_result } = loadLanguage();
 let { exec } = require('child_process');
 
 let voices = {
@@ -57,7 +57,7 @@ onCommand(
 
   if (!msg.replied) return await msg.reply(need_vc);
   if (!text[1]) return await msg.reply(need_vc_type + '*- blown*\n*- deep*\n*- earrape*\n*- fast*\n*- fat*\n*- nightcore*\n*- reverse*\n*- slow*\n*- smooth*\n*- squirrel*');
-  if (!msg.replied.audio) return await msg.reply('*❌ Reply to any audio only!*');
+  if (!msg.replied.audio) return await msg.reply(need_aud_only);
   let audio = await msg.load(msg.replied.audio);
   fs.writeFileSync('input_audio.mp3', audio);
   audio = 'input_audio.mp3'
