@@ -1,5 +1,5 @@
 let { onCommand, loadLanguage, fetchJson } = require('../main/');
-let { pp_desc, jid_desc, name_desc, about_desc, block_desc, unblock_desc, blocklist_desc, create_desc, join_desc, info_desc, forward_desc, suc_forward, need_image, need_image_only, need_rt, er_text, suc_name, suc_about, block_already, unblock_already, blocked, unblocked, need_rm, block_list, blocklist_null, need_gc_subject, long_gc_subject, suc_created_gc, info_format, need_join_gc, invalid_gclink, unable_join, unable_join_inv } = loadLanguage();
+let { pp_desc, jid_desc, name_desc, about_desc, block_desc, unblock_desc, blocklist_desc, create_desc, join_desc, info_desc, forward_desc, need_message_forward, need_id_forward, invalid_id_forward, unsupported_forward, suc_forward, need_image, need_image_only, need_rt, er_text, suc_name, suc_about, block_already, unblock_already, blocked, unblocked, need_rm, block_list, blocklist_null, need_gc_subject, long_gc_subject, suc_created_gc, info_format, need_join_gc, invalid_gclink, unable_join, unable_join_inv } = loadLanguage();
 
 onCommand(
   {
@@ -217,13 +217,13 @@ onCommand(
    category: ['owner']
   }, async (msg, text, client) => {
 
-  if (!msg.replied) return await msg.reply('_Please reply to any message to forward!_');
-  if (!text[1]) return await msg.reply('_Please enter a chat id to forward!_\n_You can get it using ' + config.PREFIX + 'id command._');
+  if (!msg.replied) return await msg.reply(need_message_forward);
+  if (!text[1]) return await msg.reply(need_id_forward.format(config.PREFIX));
   let cid = (text[1].includes(',') ? text[1].split(',') : [text[1]]).map((id) => id.trim());
   for (let id of cid) {
    let uid = await client.isValidJid(id, false);
    if (!uid) {
-    return await msg.reply('*❌ You entered an invalid id:* ```' + id + '```\n*Please enter a valid id using ' + config.PREFIX + 'id command.*');
+    return await msg.reply(invalid_id_forward.format(id, config.PREFIX));
     break;
    }
   }
@@ -258,6 +258,6 @@ onCommand(
    return await msg.reply(suc_forward + '```' + cid.map((id) => id).join(', ') + '```');
   }
   else {
-   return await msg.reply('*❌ Unsupported media!*');
+   return await msg.reply(unsupported_forward);
   }
 });
