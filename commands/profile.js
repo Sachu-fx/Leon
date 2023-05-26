@@ -1,5 +1,5 @@
 let { onCommand, loadLanguage, fetchJson } = require('../main/');
-let { pp_desc, jid_desc, name_desc, about_desc, block_desc, unblock_desc, blocklist_desc, create_desc, join_desc, info_desc, need_image, need_image_only, need_rt, er_text, suc_name, suc_about, block_already, unblock_already, blocked, unblocked, need_rm, block_list, blocklist_null, need_gc_subject, long_gc_subject, suc_created_gc, info_format, need_join_gc, invalid_gclink, unable_join, unable_join_inv } = loadLanguage();
+let { pp_desc, jid_desc, name_desc, about_desc, block_desc, unblock_desc, blocklist_desc, create_desc, join_desc, info_desc, forward_desc, suc_forward, need_image, need_image_only, need_rt, er_text, suc_name, suc_about, block_already, unblock_already, blocked, unblocked, need_rm, block_list, blocklist_null, need_gc_subject, long_gc_subject, suc_created_gc, info_format, need_join_gc, invalid_gclink, unable_join, unable_join_inv } = loadLanguage();
 
 onCommand(
   {
@@ -207,4 +207,57 @@ onCommand(
      }
     }
    }
+});
+
+onCommand(
+  {
+   command: 'forward',
+   desc: forward_desc,
+   owner: true,
+   category: ['owner']
+  }, async (msg, text, client) => {
+
+  if (!msg.replied) return await msg.reply('_Please reply to any message to forward!_');
+  if (!text[1]) return await msg.reply('_Please enter a chat id to forward!_\n_You can get it using ' + config.PREFIX + 'id command._');
+  let cid = (text[1].includes(',') ? text[1].split(',') : [text[1]]).map((id) => id.trim());
+  for (let id of cid) {
+   let uid = await client.isValidJid(id, false);
+   if (!uid) {
+    return await msg.reply('*❌ You entered an invalid id:* ```' + id + '```\n*Please enter a valid id using ' + config.PREFIX + 'id command.*');
+    break;
+   }
+  }
+  if (msg.replied.text) {
+   for (let id of cid) {
+    await client.forward({ id: id, type: msg.replied.text.mimetype, message: msg.replied.text });
+   }
+   return await msg.reply(suc_forward + '```' + cid.map((id) => id).join(', ') + '```');
+  }
+  else if (msg.replied.image) {
+   for (let id of cid) {
+    await client.forward({ id: id, type: msg.replied.image.mimetype, message: await msg.load(msg.replied.image), caption: msg.replied.image.caption || '' });
+   }
+   return await msg.reply(suc_forward + '```' + cid.map((id) => id).join(', ') + '```');
+  }
+  else if (msg.replied.video) {
+   for (let id of cid) {
+    await client.forward({ id: id, type: msg.replied.video.mimetype, message: await msg.load(msg.replied.video), caption: msg.replied.video.caption || '' });
+   }
+   return await msg.reply(suc_forward + '```' + cid.map((id) => id).join(', ') + '```');
+  }
+  else if (msg.replied.audio) {
+   for (let id of cid) {
+    await client.forward({ id: id, type: msg.replied.audio.mimetype, message: await msg.load(msg.replied.audio), ptt: msg.replied.audio.ptt });
+   }
+   return await msg.reply(suc_forward + '```' + cid.map((id) => id).join(', ') + '```');
+  }
+  else if (msg.replied.sticker) {
+   for (let id of cid) {
+    await client.forward({ id: id, type: msg.replied.sticker.mimetype, message: await msg.load(msg.replied.sticker) });
+   }
+   return await msg.reply(suc_forward + '```' + cid.map((id) => id).join(', ') + '```');
+  }
+  else {
+   return await msg.reply('*❌ Unsupported media!*');
+  }
 });
