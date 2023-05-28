@@ -82,6 +82,7 @@ module.exports = {
  video_desc: 'Fetches youtube video information from its url.',
  channel_desc: 'Fetches youtube channel information from its name.',
  sticker_desc: 'Converts replied image or video to sticker.',
+ textmaker_desc: 'List of textmaker commands.',
  tts_desc: 'Converts text to speech using \'google text to speech\'.',
  rbg_desc: 'Removes background of the replied image using https://remove.bg/',
  gpt_desc: 'Asks your query to chat gpt.',
