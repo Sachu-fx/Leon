@@ -1,5 +1,5 @@
 let { onCommand, textpro, loadLanguage } = require('../main/');
-let { textmaker_desc } = loadLanguage();
+let { textmaker_desc, command, sample } = loadLanguage();
 let config = require('../main/config');
 
 onCommand(
@@ -142,5 +142,5 @@ onCommand(
 });
 
 function textmaker(commands) {
- return commands.map((command) => `_Command_ : *${config.PREFIX + command.command}*\n_Sample_ : *${'https://i.ibb.co/' + command.sample}*`).join('\n\n');
+ return commands.map((command) => `_${command}_ : *${config.PREFIX + command.command}*\n_${sample}_ : *${'https://i.ibb.co/' + command.sample}*`).join('\n\n');
 };
