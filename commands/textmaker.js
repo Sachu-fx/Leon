@@ -1,5 +1,5 @@
 let { onCommand, textpro, loadLanguage } = require('../main/');
-let { textmaker_desc, need_text, need_text_only, command, sample } = loadLanguage();
+let { textmaker_desc, need_text, need_text_only, invalid_format_tm, command, sample } = loadLanguage();
 let config = require('../main/config');
 
 onCommand(
@@ -1047,7 +1047,7 @@ onCommand(
   if (!text[1] && !msg.replied) return await msg.reply(need_text);
   if (!text[1] && !msg.replied.text) return await msg.reply(need_text_only);
   let query = text[1] !== '' ? text[1] : msg.replied.text;
-  if (!query.includes('/') || query.includes('/') && query.split('/').length !== 2) return await msg.reply('*❌ Invalid format!*');
+  if (!query.includes('/') || query.includes('/') && query.split('/').length !== 2) return await msg.reply(invalid_format_tm);
   await client.sendReply(
    { type: 'image', message: { url: (await textpro('thor', query.split('/').map((q) => q.trim()))) }
   });
