@@ -1,5 +1,5 @@
 let { onCommand, textpro, loadLanguage } = require('../../main/');
-let { textmaker_desc, command, sample } = loadLanguage();
+let { textmaker_desc, need_text, need_text_only, command, sample } = loadLanguage();
 let config = require('../../main/config');
 
 onCommand(
