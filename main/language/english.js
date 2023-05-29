@@ -85,7 +85,7 @@ module.exports = {
  textmaker_desc: 'List of textmaker commands.',
  need_text: '_Please enter or reply to any text message!_',
  need_text_only: '*❌ Reply to any text message only!*',
- invalid_format_tm: '*❌ Invalid format, You must enter two texts by splitting with / symbol!*\n_For example: {} Leon/Bot',
+ invalid_format_tm: '*❌ Invalid format, You must enter two texts by splitting with / symbol!*\n_For example: {} Leon/Bot_',
  command: 'Command',
  sample: 'Sample',
  tts_desc: 'Converts text to speech using \'google text to speech\'.',
