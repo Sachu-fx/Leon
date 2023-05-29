@@ -118,7 +118,7 @@ async function initialize() {
   }
  });
  client.ev.on('group-participants.update', async (user) => {
-   let greetings = require('../database/greetings');
+   let greetings = require('./database/greetings');
    await greetings.GreetingsDB.sync();
    let message = async (type) => await greetings.getMessage(user.id, type);
    if (user.action == 'add') {
