@@ -41,11 +41,11 @@ onCommand(
     },
     {
      command: 'whitebear',
-     sample: 'https://i.ibb.co/'
+     sample: 'P5NMFmk/097e571635a7.jpg'
     },
     {
      command: 'holographic',
-     sample: 'https://i.ibb.co/'
+     sample: 'QQYbdGp/b508de9af413.jpg'
     },
     {
      command: 'avengers',
@@ -53,19 +53,19 @@ onCommand(
     },
     {
      command: 'rainbow',
-     sample: 'https://i.ibb.co/'
+     sample: 'XFJNYPP/45357528363e.jpg'
     },
     {
      command: 'waterpipe',
-      sample: 'https://i.ibb.co/'
+      sample: 'xG5yvGX/0cfe74d854c6.jpg'
      },
      {
       command: 'spooky',
-      sample: 'https://i.ibb.co/'
+      sample: 'ZGVpY7r/f8cfcca45a9e.jpg'
      },
      {
       command: 'neongreen',
-      sample: 'https://i.ibb.co/'
+      sample: 'NTJVR92/1a85f5997500.jpg'
      },
      {
       command: 'lion',
@@ -73,19 +73,19 @@ onCommand(
      },
      {
       command: 'box',
-      sample: 'https://i.ibb.co/'
+      sample: 'KwLW4S0/6e5e4f20b6cb.jpg'
      },
      {
       command: 'pencil',
-      sample: 'https://i.ibb.co/'
+      sample: 'PQSF3mF/7d527a191546.jpg'
      },
      {
       command: 'circuit',
-      sample: 'https://i.ibb.co/'
+      sample: 'z5F58Sh/651d1366d79f.jpg'
      },
      {
       command: 'discovery',
-      sample: 'https://i.ibb.co/'
+      sample: 'zf8hWXC/f2a79e5d5b31.jpg'
      },
      {
       command: 'metalic',
@@ -93,39 +93,39 @@ onCommand(
      },
      {
       command: 'fiction',
-      sample: 'https://i.ibb.co/'
+      sample: 'PcstR0L/77f8a3b00518.jpg'
      },
      {
       command: 'demon',
-      sample: 'https://i.ibb.co/'
+      sample: 'LQ4H3Nh/3e6eb18e94d8.jpg'
      },
      {
       command: 'transformer',
-      sample: 'https://i.ibb.co/'
+      sample: '429SGgj/09a7ccca31b8.jpg'
      },
      {
       command: 'berry',
-      sample: 'https://i.ibb.co/'
+      sample: '5j0czF7/b0183cea0a93.jpg'
      },
      {
       command: 'thunder',
-      sample: 'https://i.ibb.co/'
+      sample: 'BfZ62j5/b14df0827dd0.jpg'
      },
      {
       command: 'magma',
-      sample: 'https://i.ibb.co/'
+      sample: 'CwK1tTB/963b3074eca6.jpg'
      },
      {
       command: 'stone',
-      sample: 'https://i.ibb.co/'
+      sample: 's3qkJXH/6635d4414089.jpg'
      },
      {
       command: 'neonlight',
-      sample: 'https://i.ibb.co/'
+      sample: 'NrR1sxf/81fc89ecd09e.jpg'
      },
      {
       command: 'glitch',
-      sample: 'https://i.ibb.co/'
+      sample: 'Fbjg114/3d504d660dd7.jpg'
      },
      {
       command: 'harrypotter',
@@ -133,99 +133,99 @@ onCommand(
      },
      {
       command: 'brokenglass',
-      sample: 'https://i.ibb.co/'
+      sample: 'B6Gjt6v/dbc5bbd514fc.jpg'
      },
      {
       command: 'papercut',
-      sample: 'https://i.ibb.co/'
+      sample: 'VMDv8TV/3a02ac1f3b83.jpg'
      },
      {
       command: 'watercolour',
-      sample: 'https://i.ibb.co/'
+      sample: 'Jksxr79/4de3f6e3dbd3.jpg'
      },
      {
       command: 'multicolour',
-      sample: 'https://i.ibb.co/'
+      sample: 'HGtXW9G/89a2a8ca0294.jpg'
      },
      {
       command: 'neondevil',
-      sample: 'https://i.ibb.co/'
+      sample: 'SXmDyMh/5b579b1ffbd8.jpg'
      },
      {
       command: 'underwater',
-      sample: 'https://i.ibb.co/'
+      sample: 'rHGp0WL/2a2a6a39e167.jpg'
      },
      {
       command: 'graffiti',
-      sample: 'https://i.ibb.co/'
+      sample: 'r5dk9pN/16c19ad2520a.jpg'
      },
      {
       command: 'snow',
-      sample: 'https://i.ibb.co/'
+      sample: 'WxjFFFk/3424e032472c.jpg'
      },
      {
       command: 'cloud',
-      sample: 'https://i.ibb.co/'
+      sample: 'nrYRmTz/4edcf8b1b1fc.jpg'
      },
      {
       command: 'carbon',
-      sample: 'https://i.ibb.co/'
+      sample: '4fRg5sf/72628cd1ed67.jpg'
      },
      {
       command: 'honey',
-      sample: 'https://i.ibb.co/'
+      sample: 'yByt788/e1cc1311be19.jpg'
      },
      {
       command: 'ice',
-      sample: 'https://i.ibb.co/'
+      sample: 'MRCSDjY/e314498ab630.jpg'
      },
      {
       command: 'juice',
-      sample: 'https://i.ibb.co/'
+      sample: 'ZhVvhwF/2c67cd155381.jpg'
      },
      {
       command: 'biscuit',
-      sample: 'https://i.ibb.co/'
+      sample: '0FVhgYH/37c1eed7f419.jpg'
      },
      {
       command: 'wood',
-      sample: 'https://i.ibb.co/'
+      sample: '0p5qnxY/f11da5c0fcc3.jpg'
      },
      {
       command: 'chocolate',
-      sample: 'https://i.ibb.co/'
+      sample: '2M2V8fQ/6672059da322.jpg'
      },
      {
       command: 'strawberry',
-      sample: 'https://i.ibb.co/'
+      sample: 'C210VhZ/4f924ed84210.jpg'
      },
      {
       command: 'matrix',
-      sample: 'https://i.ibb.co/'
+      sample: 'R6xRDFb/7ea6c7c0ed00.jpg'
      },
      {
       command: 'blood',
-      sample: 'https://i.ibb.co/'
+      sample: '7KHZszz/e0ac51c4dab9.jpg'
      },
      {
       command: 'dropwater',
-      sample: 'https://i.ibb.co/'
+      sample: 'cc0kZzj/3348fe416aac.jpg'
      },
      {
       command: 'toxic',
-      sample: 'https://i.ibb.co/'
+      sample: 'YDhLC6b/a7b2a4152117.jpg'
      },
      {
       command: 'lava',
-      sample: 'https://i.ibb.co/'
+      sample: '7QRm5Rs/dcf0ad415455.jpg'
      },
      {
       command: 'rock',
-      sample: 'https://i.ibb.co/'
+      sample: 'fndMfBf/159161e04a12.jpg'
      },
      {
       command: 'bloodglass',
-      sample: 'https://i.ibb.co/'
+      sample: 'tzXZ02K/80a37d480f59.jpg'
      },
      {
       command: 'halloween',
@@ -233,99 +233,99 @@ onCommand(
      },
      {
       command: 'darkgold',
-      sample: 'https://i.ibb.co/'
+      sample: 'ry3YNVW/36d0219aca54.jpg'
      },
      {
       command: 'joker',
-      sample: 'https://i.ibb.co/'
+      sample: 'WKNV2Qm/9e8506ca299c.jpg'
      },
      {
       command: 'wicker',
-      sample: 'https://i.ibb.co/'
+      sample: 'vwqSKTm/8df30900b08d.jpg'
      },
      {
       command: 'firework',
-      sample: 'https://i.ibb.co/'
+      sample: 'm0yxcrK/9f91faceee46.jpg'
      },
      {
       command: 'skeleton',
-      sample: 'https://i.ibb.co/'
+      sample: 'R9XQYb8/310159d818e4.jpg'
      },
      {
       command: 'blackpink',
-      sample: 'https://i.ibb.co/'
+      sample: '7204Z1g/112f99548d3e.jpg'
      },
      {
       command: 'sand',
-      sample: 'https://i.ibb.co/'
+      sample: 'vVW7WpZ/f3dec31277bc.jpg'
      },
      {
       command: 'glue',
-      sample: 'https://i.ibb.co/'
+      sample: 'hXh4kkm/b7cbbe2be6e5.jpg'
      },
      {
       command: '1917',
-      sample: 'https://i.ibb.co/'
+      sample: 'y6Hcf1P/8ba76f161603.jpg'
      },
      {
       command: 'leaves',
-      sample: 'https://i.ibb.co/'
+      sample: 'WgG0500/41e04b4f2dd1.jpg'
      },
      {
       command: 'pink',
-      sample: 'https://i.ibb.co/'
+      sample: 'kqPn1VK/a492137dc6b4.jpg'
      },
      {
       command: 'paint',
-      sample: 'https://i.ibb.co/'
+      sample: '3ChNSx9/d950b5eb2431.jpg'
      },
      {
       command: 'metal',
-      sample: 'https://i.ibb.co/'
+      sample: '1LfZ6Wy/1d4e81ff3f46.jpg'
      },
      {
       command: 'burger',
-      sample: 'https://i.ibb.co/'
+      sample: 'jZ9QCr8/b51f18cc58df.jpg'
      },
      {
       command: 'comic',
-      sample: 'https://i.ibb.co/'
+      sample: 'B67ZZSB/d164d20d91c7.jpg'
      },
      {
       command: 'typography',
-      sample: 'https://i.ibb.co/'
+      sample: 'zXYGWwC/122ef65d5ae6.jpg'
      },
      {
       command: 'orange',
-      sample: 'https://i.ibb.co/'
+      sample: 'h9rNqDT/01ac58300a75.jpg'
      },
      {
       command: 'valentine',
-      sample: 'https://i.ibb.co/'
+      sample: 'n7QNW3Y/fc4cba2a2dab.jpg'
      },
      {
       command: 'glass',
-      sample: 'https://i.ibb.co/'
+      sample: 'YtgXKK6/6e38acc78e7d.jpg'
      },
      {
       command: 'sliced',
-      sample: 'https://i.ibb.co/'
+      sample: 'dWYyRb8/3f43e9af1293.jpg'
      },
      {
       command: 'thor',
-      sample: 'https://i.ibb.co/'
+      sample: '9p87Lh8/0a1e4fe7b916.jpg'
      },
      {
       command: 'bokeh',
-      sample: 'https://i.ibb.co/'
+      sample: 'Gk5b2Hr/678a04438947.jpg'
      },
      {
       command: 'glow',
-      sample: 'https://i.ibb.co/'
+      sample: '7Nmq564/e79182f42818.jpg'
      },
      {
       command: 'kids',
-      sample: 'https://i.ibb.co/'
+      sample: '3hXTs7X/86943290eb35.jpg'
      }
    ])
   );
@@ -1425,5 +1425,5 @@ onCommand(
 });
 
 function textmaker(commands) {
- return commands.map((cmd) => `_${command}_ : *${config.PREFIX + cmd.command}*\n_${sample}_ : *${'https://i.ibb.co/' + command.sample}*`).join('\n\n');
+ return commands.map((cmd) => `_${command}_ : *${config.PREFIX + cmd.command}*\n_${sample}_ : *${'https://i.ibb.co/' + cmd.sample}*`).join('\n\n');
 };
