@@ -64,7 +64,7 @@ onCommand(
       sample: 'https://i.ibb.co/'
      },
      {
-      command: 'greenneon',
+      command: 'neongreen',
       sample: 'https://i.ibb.co/'
      },
      {
@@ -551,7 +551,7 @@ onCommand(
   if (!text[1] && !msg.replied.text) return await msg.reply(need_text_only);
   let query = text[1] !== '' ? text[1] : msg.replied.text;
   await client.sendReply(
-   { type: 'image', message: { url: (await textpro('pencil', query)) }
+   { type: 'image', message: { url: (await textpro('box', query)) }
   });
 });
 
