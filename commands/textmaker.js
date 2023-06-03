@@ -88,10 +88,6 @@ onCommand(
       sample: 'zf8hWXC/f2a79e5d5b31.jpg'
      },
      {
-      command: 'metalic',
-      sample: 'https://i.ibb.co/'
-     },
-     {
       command: 'fiction',
       sample: 'PcstR0L/77f8a3b00518.jpg'
      },
@@ -126,10 +122,6 @@ onCommand(
      {
       command: 'glitch',
       sample: 'Fbjg114/3d504d660dd7.jpg'
-     },
-     {
-      command: 'harrypotter',
-      sample: 'https://i.ibb.co/'
      },
      {
       command: 'brokenglass',
@@ -582,20 +574,6 @@ onCommand(
   let query = text[1] !== '' ? text[1] : msg.replied.text;
   await client.sendReply(
    { type: 'image', message: { url: (await textpro('discovery', query)) }
-  });
-});
-
-onCommand(
-  {
-   command: 'metalic',
-   hide: true
-  }, async (msg, text, client) => {
-
-  if (!text[1] && !msg.replied) return await msg.reply(need_text);
-  if (!text[1] && !msg.replied.text) return await msg.reply(need_text_only);
-  let query = text[1] !== '' ? text[1] : msg.replied.text;
-  await client.sendReply(
-   { type: 'image', message: { url: (await textpro('metalic', query)) }
   });
 });
 
