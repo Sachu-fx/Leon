@@ -537,8 +537,9 @@ onCommand(
   if (!text[1] && !msg.replied) return await msg.reply(need_text);
   if (!text[1] && !msg.replied.text) return await msg.reply(need_text_only);
   let query = text[1] !== '' ? text[1] : msg.replied.text;
+  if (!query.includes('/') || query.includes('/') && query.split('/').length !== 2) return await msg.reply(invalid_format_tm);
   await client.sendReply(
-   { type: 'image', message: { url: (await textpro('lion', query)) }
+   { type: 'image', message: { url: (await textpro('lion', query.split('/').map((q) => q.trim()))) }
   });
 });
 
@@ -721,20 +722,6 @@ onCommand(
   let query = text[1] !== '' ? text[1] : msg.replied.text;
   await client.sendReply(
    { type: 'image', message: { url: (await textpro('glitch', query)) }
-  });
-});
-
-onCommand(
-  {
-   command: 'harrypotter',
-   hide: true
-  }, async (msg, text, client) => {
-
-  if (!text[1] && !msg.replied) return await msg.reply(need_text);
-  if (!text[1] && !msg.replied.text) return await msg.reply(need_text_only);
-  let query = text[1] !== '' ? text[1] : msg.replied.text;
-  await client.sendReply(
-   { type: 'image', message: { url: (await textpro('harrypotter', query)) }
   });
 });
 
