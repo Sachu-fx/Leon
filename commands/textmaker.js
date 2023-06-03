@@ -4,6 +4,47 @@ let config = require('../main/config');
 
 onCommand(
   {
+   command: 'textmaker',
+   desc: textmaker_desc
+  }, async (msg, text, client) => {
+
+  await msg.reply(
+   textmaker(
+    [
+     {
+      command: 'candy',
+      sample: 'tsZKJmk/fefcaed4e70b.jpg',
+     },
+     {
+      command: 'neongalaxy',
+      sample: '5WCy8Cz/4d33f5cc1bb2.jpg',
+     },
+     {
+      command: 'christmas',
+      sample: '0YTqK6g/270ce2781d08.jpg',
+     },
+     {
+      command: 'xmas',
+      sample: 'HhY0vYt/a67db6a50518.jpg',
+     },
+     {
+      command: 'sparklexmas',
+      sample: 'Y7tVfpj/ebb53230b8f3.jpg',
+     },
+     {
+      command: 'sea',
+      sample: 'VjLhb9F/473d2c036b27.jpg',
+    },
+    {
+     command: 'scifi',
+     sample: 'pZgKd3m/ad23369ec47c.jpg',
+    }
+   ])
+  );
+});
+
+onCommand(
+  {
    command: 'candy',
    hide: true
   }, async (msg, text, client) => {
