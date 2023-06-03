@@ -38,7 +38,295 @@ onCommand(
     {
      command: 'scifi',
      sample: 'pZgKd3m/ad23369ec47c.jpg',
-    }
+    },
+    {
+     command: 'whitebear',
+     sample: 'https://i.ibb.co/'
+    },
+    {
+     command: 'holographic',
+     sample: 'https://i.ibb.co/'
+    },
+    {
+     command: 'avengers',
+     sample: 'https://i.ibb.co/'
+    },
+    {
+     command: 'rainbow',
+     sample: 'https://i.ibb.co/'
+    },
+    {
+     command: 'waterpipe',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'spooky',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'greenneon',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'lion',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'box',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'pencil',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'circuit',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'discovery',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'metalic',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'fiction',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'demon',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'transformer',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'berry',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'thunder',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'magma',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'stone',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'neonlight',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'glitch',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'harrypotter',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'brokenglass',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'papercut',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'watercolour',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'multicolour',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'neondevil',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'underwater',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'graffiti',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'snow',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'cloud',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'carbon',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'honey',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'ice',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'juice',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'biscuit',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'wood',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'chocolate',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'strawberry',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'matrix',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'blood',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'dropwater',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'toxic',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'lava',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'rock',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'bloodglass',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'halloween',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'darkgold',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'joker',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'wicker',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'firework',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'skeleton',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'blackpink',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'sand',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'glue',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: '1917',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'leaves',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'pink',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'paint',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'metal',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'burger',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'comic',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'typography',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'orange',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'valentine',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'glass',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'sliced',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'thor',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'bokeh',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'glow',
+      sample: 'https://i.ibb.co/'
+     },
+     {
+      command: 'kids',
+      sample: 'https://i.ibb.co/'
+     }
    ])
   );
 });
