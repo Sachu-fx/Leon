@@ -1,6 +1,7 @@
 let { onCommand, loadLanguage, isURL, fetchJson } = require('../main/');
 let allCommands = require('../main/').commands.allCommands;
 let { alive_desc, alive_message, menu, alive_footer, shutdown_desc, restart_desc, ping_desc, restarting, measuring, shutting_down, shutdown_warn } = loadLanguage();
+let config = require('../main/config');
 let fs = require('fs');
 
 onCommand(
@@ -10,10 +11,11 @@ onCommand(
    category: ['misc']
   }, async (msg, text, client) => {
 
+  let alive = (config.ALIVEMSG == 'default' ? alive_message.format(await client.userName(msg.sender), require('../package').version, require('../main/commands').commands.allCommands.length, await client.userName(msg.me)) : config.ALIVEMSG);
   return await client.sendReply(
    {
     type: 'text',
-    message: alive_message.format(await client.userName(msg.sender), require('../package').version, require('../main/commands').commands.allCommands.length, await client.userName(msg.me))
+    message: alive
    }
   );
 });
