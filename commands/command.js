@@ -1,5 +1,5 @@
 let { onCommand, removeCommand, loadLanguage } = require('../main/');
-let { install_desc, commands_desc, remove_desc, need_install, invalid_url_install, unofficial_install, invalid_gist_url, invalid_command, installed_command, none_installed, need_remove, deleted_command } = loadLanguage();
+let { install_desc, commands_desc, remove_desc, need_install, invalid_url_install, unofficial_install, invalid_gist_url, invalid_command, installed_command, none_installed, need_remove, no_command_rem, deleted_command } = loadLanguage();
 let got = require('got');
 let fs = require('fs');
 let { installCommand, CommandsDB } = require('../database/command');

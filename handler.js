@@ -1,6 +1,6 @@
 'use strict';
 let { isCommand, serializeMessage, serializeClient, getTextMessage, commands, loadAuthID, formatTime, msToTime, loadLanguage } = require('./main/');
-let { error_message } = loadLanguage();
+let { anticall_blockmsg, anticall_msg, error_message } = loadLanguage();
 let bot = require('./main/auth');
 let got = require('got');
 let path = require('path');
@@ -24,10 +24,10 @@ Array.prototype.random = function () {
 async function initialize() {
   let { client, store, saveCreds } = await bot.connect();
 
-  console.log('Loading external commands...', 'processing')
   let { CommandsDB } = require('./database/command');
   await CommandsDB.sync();
   var command = await CommandsDB.findAll();
+  if (command.length > 0) console.log('[ 🔄 ] Loading external commands...');
   command.map(async (command) => {
    try {
     if (fs.existsSync('./commands/external/'+ command.dataValues.name + '.js')) return false;
@@ -36,7 +36,7 @@ async function initialize() {
     fs.writeFileSync('./commands/external/' + command.dataValues.name + '.js', response.body);
     require('./commands/external/' + command.dataValues.name + '.js');
    } catch (e) {
-    console.log(e);
+    console.log('[ ❌ ] ' + String(e));
    }
  });
 
@@ -58,7 +58,7 @@ async function initialize() {
   }
  });
 
- console.log('Loaded external commands!', 'done');
+ if (command.length > 0) console.log('[ ✅ ] Loaded external commands!');
 
  await serializeClient(store, client);
 
@@ -83,7 +83,7 @@ async function initialize() {
    }
    await msg.reply(evaluate);
   }
-
+  
   commands.allCommands.map(
       async (command) =>  {
        if (msg.text.charAt(0).match(config.PREFIX) && msg.text.split(msg.text.charAt(0))[1].startsWith(command.command)) {
@@ -100,7 +100,7 @@ async function initialize() {
          try {
            await command.function(msg, text, client);
          } catch (error) {
-           console.log(error.stack?.toString(), 'failed');
+           console.log('[ ❌ ] ' + error.stack?.toString());
            await msg.reply(error_message.format(error.toString()), client.user.id);
          }
        }
@@ -108,8 +108,18 @@ async function initialize() {
  });
 
  client.ev.on('creds.update', saveCreds)
+ client.ev.on('call', async (json) => {
+  if (config.ANTICALL == 'true') {
+   let callerId = json[0].chatId, callId = json[0].id;
+   if (json[0].status == 'offer') {
+    await client.sendMessage(callerId, { text: anticall_blockmsg });
+    return await client.updateBlockStatus(callerId, 'block');
+   }
+  }
+ });
  client.ev.on('group-participants.update', async (user) => {
-   let greetings = require('../database/greetings');
+   let greetings = require('./database/greetings');
+   await greetings.GreetingsDB.sync();
    let message = async (type) => await greetings.getMessage(user.id, type);
    if (user.action == 'add') {
     if (!(await message('welcome'))) return;
@@ -125,7 +135,7 @@ async function initialize() {
     await client.sendMessage(user.id, { text: (await message('demote')) });
    }
  });
- console.log('LEON IS NOW ACTIVE IN YOUR ACCOUNT!', 'done');
+ console.log('[ ✅ ] Connected!');
 
  return { store, client };
 }

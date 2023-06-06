@@ -12,12 +12,8 @@ onCommand(
 
   return await client.sendReply(
    {
-    messageType: 'buttonText',
-    text: alive_message.format(await client.userName(msg.sender)),
-    footer: alive_footer.format(await client.userName(msg.sender), msg.sender, '+'+msg.sender.split('@')[0], allCommands.length),
-    buttons: [
-     { id: `${require('../main/config').PREFIX}menu`, name: menu }
-    ]
+    type: 'text',
+    message: alive_message.format(await client.userName(msg.sender), require('../package').version, require('../main/commands').commands.allCommands.length, await client.userName(msg.me))
    }
   );
 });

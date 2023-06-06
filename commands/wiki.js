@@ -1,6 +1,20 @@
 let { onCommand, loadLanguage } = require('../main/');
 let api = require('../main/api');
-let { wiki_desc, planetary_desc, wiki_need, wiki_invalid, wiki_result } = loadLanguage();
+let { wiki_desc, planetary_desc, vc_desc, need_vc, need_vc_type, invalid_vc_type, need_aud_only, wiki_need, wiki_invalid, wiki_result } = loadLanguage();
+let { exec } = require('child_process');
+
+let voices = {
+ 'blown': '-af acrusher=.1:1:64:0:log',
+ 'deep': '-af atempo=4/4,asetrate=44500*2/3',
+ 'earrape': '-af volume=12',
+ 'fast': '-filter:a "atempo=1.63,asetrate=44100"',
+ 'fat': '-filter:a "atempo=1.6,asetrate=22100"',
+ 'nightcore': '-filter:a atempo=1.06,asetrate=44100*1.25',
+ 'reverse': '-filter_complex "areverse"',
+ 'slow': '-filter:a "atempo=0.7,asetrate=44100"',
+ 'smooth': '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"',
+ 'squirrel': '-filter:a "atempo=0.5,asetrate=65100"'
+};
 
 onCommand(
   {
@@ -32,4 +46,27 @@ onCommand(
      return await msg.reply('*👆 ' + caption.slice(1));
     }
   );
+});
+
+onCommand(
+  {
+   command: 'vc',
+   desc: vc_desc,
+   category: ['misc']
+  }, async (msg, text, client) => {
+
+  if (!msg.replied) return await msg.reply(need_vc);
+  if (!text[1]) return await msg.reply(need_vc_type + '*- blown*\n*- deep*\n*- earrape*\n*- fast*\n*- fat*\n*- nightcore*\n*- reverse*\n*- slow*\n*- smooth*\n*- squirrel*');
+  if (!msg.replied.audio) return await msg.reply(need_aud_only);
+  let audio = await msg.load(msg.replied.audio);
+  fs.writeFileSync('input_audio.mp3', audio);
+  audio = 'input_audio.mp3'
+  text[1] = text[1].toLowerCase().replace(/ /g, '');
+  let command = voices[text[1]];
+  if (command == undefined) return await msg.reply(invalid_vc_type + '*- blown*\n*- deep*\n*- earrape*\n*- fast*\n*- fat*\n*- nightcore*\n*- reverse*\n*- slow*\n*- smooth*\n*- squirrel*');
+  exec(`ffmpeg -i ${audio} ${command} voice.mp3`, async (err, stderr, stdout) => {
+    if (err) throw 'FFMPEG ERROR!';
+    await client.sendReply({ type: 'audio', message: { url: 'voice.mp3' } });
+    return await fs.unlinkSync('voice.mp3');
+  });
 });
