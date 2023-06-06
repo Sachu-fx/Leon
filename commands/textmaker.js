@@ -221,7 +221,7 @@ onCommand(
      },
      {
       command: 'halloween',
-      sample: 'https://i.ibb.co/'
+      sample: 'txS3Hdm/bef0fef13f86.jpg'
      },
      {
       command: 'darkgold',
