@@ -244,6 +244,6 @@ module.exports = {
  only_text_greet: '*❌ Reply to any text only!*',
  invalid_type_greet: '*❌ Invalid type, Please enter a valid type from below:*\n*- welcome*\n*- bye*\n*- promote*\n*- demote*',
  suc_greet: '*✅ Successfully set {} message!*',
- alive_message: '*Hey {}!*\n*I\'m still alive!*\n\n_Version_ : *{}*\n_Commands_ : *{}*\n_Owner_ : *{}*',
+ alive_message: '*Hey {}!*\n*I\'m still alive!*',
  error_message: '*ERROR LOG*\n\n_An error occurred! You can open an issue at TOXIC-DEVIL/Leon for a fix._\n*Open an issue:* https://bit.ly/43kG9jU\n\n*Error:* ```{}```'
 };
