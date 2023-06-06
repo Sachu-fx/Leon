@@ -49,7 +49,7 @@ onCommand(
     },
     {
      command: 'avengers',
-     sample: 'https://i.ibb.co/'
+     sample: 'MDQZh0S/4eaca1e2fadd.jpg'
     },
     {
      command: 'rainbow',
@@ -69,7 +69,7 @@ onCommand(
      },
      {
       command: 'lion',
-      sample: 'https://i.ibb.co/'
+      sample: 'FHc01hH/e4f087a12bb3.jpg'
      },
      {
       command: 'box',
